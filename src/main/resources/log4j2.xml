@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss:sss} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+        <File name="File" fileName="./target/hibernate.log">
+            <PatternLayout pattern="%d{HH:mm:ss:sss} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="org.jboss" level="warn" additivity="false">
+            <!--<AppenderRef ref="Console" />-->
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="org.hibernate.SQL" level="debug" additivity="false">
+            <!--<AppenderRef ref="Console" />-->
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="org.hibernate.type.descriptor.sql" level="debug" additivity="false">
+            <!--<AppenderRef ref="Console" />-->
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="org.hibernate" level="warn" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="com.springTest" level="all" additivity="false">
+            <!--<AppenderRef ref="Console" />-->
+            <AppenderRef ref="File" />
+        </Logger>
+        <Logger name="org.springframework" level="warn" additivity="false">
+            <AppenderRef ref="File" />
+        </Logger>
+        <Root level="all" >
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>
